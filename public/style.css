@@ -1,0 +1,35 @@
+/**************************** reset and common ****************************/
+body, header, main, p, h2, h3, ul, li, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+li {
+    list-style-type: none;
+}
+button {
+    border: none;
+    background-color: transparent;
+    font: inherit;
+}
+.visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+/**************************** app main ****************************/
+.app {
+    width: 100%;
+    background-color: #999;
+    color: red;
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 28px;
+}
+
+/**************************** header ****************************/
+.header {
+    background-color: #fff;
+}
