@@ -1,5 +1,6 @@
 class Book {
-    constructor(title, author, img, dateOfReading, mainIdea, quotes) {
+    constructor(id, title, author, img, dateOfReading, mainIdea, quotes) {
+        this.id = id;
         this.title = title;
         this.author = author;
         this.img = img;
@@ -11,6 +12,7 @@ class Book {
 
 const db = [
     new Book(
+        '9324fdsf1',
         'Краткие ответы на большие вопросы',
         'Стивен Хокинг',
         null,
@@ -19,6 +21,7 @@ const db = [
         ['Так что не забывайте смотреть не только под ноги, но и на звезды. Старайтесь искать смысл в том, что вы видите, и думать о том, как и почему существует Вселенная. Будьте любознательны. Какой бы трудной ни казалась жизнь, вы всегда можете что-то сделать и чего-то добиться. Главное – никогда не сдаваться. Дайте волю воображению. Творите будущее.']
     ),
     new Book(
+        '1308s6wd1',
         'Принципы. Жизнь и работа',
         'Рэй Далио',
         null,
