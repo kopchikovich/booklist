@@ -33,15 +33,61 @@ button {
     background-color: #fff;
     color: #333;
     width: 100%;
-    height: 78px;
+    height: 60px;
     position: fixed;
     top: 0;
     left: 0;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /**************************** main ****************************/
 .main {
+    width: 100%;
     margin-top: 78px;
     background-color: #aab;
     color: red;
+}
+
+/**************************** button ****************************/
+.button {
+    padding: 5px;
+}
+.button--percon-icon {
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+.button--percon-icon::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 13px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #333;
+}
+.button--percon-icon::after {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 9px;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-bottom: 10px solid #333;
+}
+/**************************** search-input ****************************/
+.search-input {
+    margin: 5px;
+    padding: 5px;
+    width: 250px;
+    height: 40px;
+    border: 1px solid #333;
+    font: inherit;
+    font-size: 30px;
 }
