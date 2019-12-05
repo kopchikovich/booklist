@@ -15,7 +15,7 @@ class SearchInput extends Component {
     render() {
         return (
             <input
-                className='header__search'
+                className={this.props.className}
                 type='search'
                 placeholder='search'
                 onChange={this.onChangeHandler}/>
