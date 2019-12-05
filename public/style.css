@@ -19,10 +19,9 @@ button {
     height: 1px;
     margin: -1px;
 }
-
 /**************************** app main ****************************/
 .app {
-    width: 100%;
+    width: 375px;
     background-color: #999;
     color: red;
     font-family: Verdana, Tahoma, sans-serif;
@@ -32,4 +31,17 @@ button {
 /**************************** header ****************************/
 .header {
     background-color: #fff;
+    color: #333;
+    width: 100%;
+    height: 78px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+/**************************** main ****************************/
+.main {
+    margin-top: 78px;
+    background-color: #aab;
+    color: red;
 }
