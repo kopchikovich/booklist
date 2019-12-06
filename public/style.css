@@ -1,5 +1,10 @@
+:root {
+    --main-bg-color: #ddd;
+    --main-color: #333;
+}
+
 /**************************** common ****************************/
-body, header, main, p, h2, h3, ul, li, button {
+body, header, main, p, h2, h3, ul, li, button, article {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -22,16 +27,16 @@ button {
 /**************************** app ****************************/
 .app {
     width: 375px;
-    background-color: #999;
-    color: red;
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
     font-family: Verdana, Tahoma, sans-serif;
     font-size: 28px;
 }
 
 /**************************** header ****************************/
 .header {
-    background-color: #fff;
-    color: #333;
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
     width: 100%;
     height: 60px;
     position: fixed;
@@ -43,12 +48,15 @@ button {
     align-items: center;
 }
 
-/**************************** main ****************************/
-.main {
-    width: 100%;
-    margin-top: 60px;
-    background-color: #aab;
-    color: red;
+/**************************** search-input ****************************/
+.search-input {
+    margin: 5px;
+    padding: 5px;
+    width: 250px;
+    height: 40px;
+    border: 1px solid var(--main-color);
+    font: inherit;
+    font-size: 30px;
 }
 
 /**************************** button ****************************/
@@ -69,8 +77,8 @@ button {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    border: 1px solid #333;
-    background-color: #333;
+    border: 1px solid var(--main-color);
+    background-color: var(--main-color);
 }
 .button--percon-icon::after {
     content: '';
@@ -80,15 +88,27 @@ button {
     width: 0;
     height: 0;
     border: 10px solid transparent;
-    border-bottom: 10px solid #333;
+    border-bottom: 10px solid var(--main-color);
 }
-/**************************** search-input ****************************/
-.search-input {
-    margin: 5px;
-    padding: 5px;
-    width: 250px;
-    height: 40px;
-    border: 1px solid #333;
-    font: inherit;
-    font-size: 30px;
+
+/**************************** main ****************************/
+.main {
+    width: 100%;
+    margin-top: 60px;
+    background-color: var(--main-bg-color);
+    color: var(--main-color);
+}
+
+/**************************** book ****************************/
+.book {
+    width: 100%;
+    padding: 10px 5px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.book__cover {
+    width: 200px;
+    height: auto;
 }
