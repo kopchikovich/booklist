@@ -4,7 +4,6 @@ class SearchInput extends Component {
 
     constructor(props) {
         super(props)
-
         this.onChangeHandler = this.onChangeHandler.bind(this)
     }
 

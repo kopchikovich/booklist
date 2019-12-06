@@ -4,9 +4,7 @@ import db from '../data'
 const Book = (props) => {
     const book = db[props.bookId];
     const dateOfReading = book.dateOfReading.toDateString();
-    const quotes = book.quotes.map((item, i) => {
-        return <li key={i}>"{item}"</li>
-    });
+    const quotes = book.quotes.map((item, i) => {return <li key={i}>"{item}"</li>});
     return  (
         <article className='book'>
             <img
