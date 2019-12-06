@@ -1,4 +1,4 @@
-/**************************** reset and common ****************************/
+/**************************** common ****************************/
 body, header, main, p, h2, h3, ul, li, button {
     margin: 0;
     padding: 0;
@@ -19,7 +19,7 @@ button {
     height: 1px;
     margin: -1px;
 }
-/**************************** app main ****************************/
+/**************************** app ****************************/
 .app {
     width: 375px;
     background-color: #999;
@@ -46,7 +46,7 @@ button {
 /**************************** main ****************************/
 .main {
     width: 100%;
-    margin-top: 78px;
+    margin-top: 60px;
     background-color: #aab;
     color: red;
 }
@@ -70,6 +70,7 @@ button {
     height: 10px;
     border-radius: 50%;
     border: 1px solid #333;
+    background-color: #333;
 }
 .button--percon-icon::after {
     content: '';

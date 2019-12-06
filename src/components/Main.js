@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Book from './book'
 
 class Main extends Component {
     
@@ -6,6 +7,7 @@ class Main extends Component {
         return (
             <main className='app__main main'>
                 {this.props.search}
+                <Book bookId='1308s6wd1' />
             </main>
         )
     }
