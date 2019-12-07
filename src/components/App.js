@@ -25,11 +25,7 @@ class App extends Component {
                     screen={this.state.screen}
                 />
                 <Main 
-                    search={this.state.search}
-                    screen={this.state.screen}
-                    bookId={this.state.bookId}
-                    lightTheme={this.state.lightTheme}
-                    lastBookId={this.state.lastBookId}
+                    state={this.state}
                     openBook={this.openBook.bind(this)}
                     switchTheme={this.switchTheme.bind(this)}
                 />
