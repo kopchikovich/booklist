@@ -7,9 +7,11 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'search',
+            screen: 'user',
             search: '',
-            bookId: '1308s6wd1'
+            bookId: '1308s6wd1',
+            lastBookId: '9324fdsf1',
+            lightTheme: false
         }
     }
 
@@ -26,7 +28,10 @@ class App extends Component {
                     search={this.state.search}
                     screen={this.state.screen}
                     bookId={this.state.bookId}
+                    lightTheme={this.state.lightTheme}
+                    lastBookId={this.state.lastBookId}
                     openBook={this.openBook.bind(this)}
+                    switchTheme={this.switchTheme.bind(this)}
                 />
             </div>
         )
@@ -69,6 +74,23 @@ class App extends Component {
         this.setState({
             screen: 'user'
         })
+    }
+
+    switchTheme() {
+        const root = document.querySelector('html')
+        if (!this.state.lightTheme) {
+            root.style.setProperty('--main-bg-color', '#ddd')
+            root.style.setProperty('--main-color', '#333')
+            this.setState({
+                lightTheme: true
+            })
+        } else {
+            root.style.setProperty('--main-bg-color', '#333')
+            root.style.setProperty('--main-color', '#ddd')
+            this.setState({
+                lightTheme: false
+            })
+        }
     }
 }
 
