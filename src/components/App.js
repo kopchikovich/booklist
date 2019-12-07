@@ -7,7 +7,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'user',
+            screen: 'book',
             search: '',
             bookId: '1308s6wd1',
             lastBookId: '9324fdsf1',

@@ -11,7 +11,12 @@ class Checkbox extends Component {
 
     render() {
         return (
-            <input type='checkbox' onChange={this.props.onChangeHandler} checked={this.props.isChecked} />
+            <input
+                type='checkbox'
+                className={this.props.className}
+                onChange={this.props.onChangeHandler}
+                checked={this.props.isChecked}
+            />
         )
     }
 }
