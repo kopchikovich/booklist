@@ -36,7 +36,7 @@ body {
     background-color: var(--main-bg-color);
     color: var(--main-color);
     font-family: Verdana, Tahoma, sans-serif;
-    font-size: 28px;
+    font-size: 24px;
     margin: 0 auto;
     position: relative;
 }
@@ -64,7 +64,7 @@ body {
     height: 40px;
     border: 1px solid var(--main-color);
     font: inherit;
-    font-size: 30px;
+    font-size: 26px;
     background-color: var(--main-bg-color);
     color: var(--main-color);
 }
@@ -142,4 +142,17 @@ body {
 .book__date {
     font-size: 0.9em;
     margin-top: 10px;
+}
+
+/**************************** booklist ****************************/
+.booklist {
+    text-align: left;
+    padding: 0 20px;
+}
+.booklist__book {
+    list-style-type: none;
+    margin-top: 10px;
+}
+.booklist__book button {
+    text-align: left;
 }

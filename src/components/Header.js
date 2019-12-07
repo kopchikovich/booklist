@@ -8,7 +8,7 @@ const Header = (props) => {
     return (
         <header className='app__header header'>
             {props.screen === 'search' ? searchInput : button}
-            <Button className='header__button button button--percon-icon' />
+            <Button className='header__button button button--percon-icon' onClickHandler={props.openUserScreen} />
         </header>
     )
 }

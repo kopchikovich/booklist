@@ -7,8 +7,9 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'book',
-            search: ''
+            screen: 'search',
+            search: '',
+            bookId: '1308s6wd1'
         }
     }
 
@@ -18,9 +19,15 @@ class App extends Component {
                 <Header 
                     searchHandler={this.searchHandler.bind(this)}
                     switchScreen={this.switchScreen.bind(this)}
+                    openUserScreen={this.openUserScreen.bind(this)}
                     screen={this.state.screen}
                 />
-                <Main search={this.state.search}/>
+                <Main 
+                    search={this.state.search}
+                    screen={this.state.screen}
+                    bookId={this.state.bookId}
+                    openBook={this.openBook.bind(this)}
+                />
             </div>
         )
     }
@@ -49,6 +56,19 @@ class App extends Component {
                 })
                 break
         }
+    }
+
+    openBook(e) {
+        this.setState({
+            bookId: e.target.value,
+            screen: 'book'
+        })
+    }
+
+    openUserScreen() {
+        this.setState({
+            screen: 'user'
+        })
     }
 }
 
