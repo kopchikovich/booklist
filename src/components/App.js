@@ -7,7 +7,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'search',
+            screen: 'book',
             search: '',
             bookId: '',
             lastBookId: 'psad51sso',
@@ -20,7 +20,7 @@ class App extends Component {
             <div className='app'>
                 <Header 
                     searchHandler={this.searchHandler.bind(this)}
-                    switchScreen={this.switchScreen.bind(this)}
+                    openSearchScreen={this.openSearchScreen.bind(this)}
                     openUserScreen={this.openUserScreen.bind(this)}
                     screen={this.state.screen}
                 />
@@ -39,24 +39,10 @@ class App extends Component {
         })
     }
 
-    switchScreen() {
-        switch (this.state.screen) {
-            case 'search':
-                this.setState({
-                    screen: 'book'
-                })
-                break
-            case 'book':
-                this.setState({
-                    screen: 'search'
-                })
-                break
-            default:
-                this.setState({
-                    screen: 'search'
-                })
-                break
-        }
+    openSearchScreen() {
+        this.setState({
+            screen: 'search'
+        })
     }
 
     openBook(e) {
@@ -69,7 +55,8 @@ class App extends Component {
 
     openUserScreen() {
         this.setState({
-            screen: 'user'
+            screen: 'user',
+            search: ''
         })
     }
 
