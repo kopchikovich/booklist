@@ -6,8 +6,8 @@ import User from './user'
 const Main = (props) => {
 
     const {screen} = props.state;
-    const book = <Book bookId={props.state.bookId} />;
-    const booklist = <BookList openBook={props.openBook} />
+    const book = <Book bookId={props.state.bookId ? props.state.bookId : props.state.lastBookId} />;
+    const booklist = <BookList state={props.state} openBook={props.openBook} />
     const userScreen = <User lastBookId={props.state.lastBookId} switchTheme={props.switchTheme} lightTheme={props.state.lightTheme} />
 
     return (

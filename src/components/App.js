@@ -7,10 +7,10 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'book',
+            screen: 'search',
             search: '',
-            bookId: '1308s6wd1',
-            lastBookId: '9324fdsf1',
+            bookId: '',
+            lastBookId: 'psad51sso',
             lightTheme: false
         }
     }
@@ -62,7 +62,8 @@ class App extends Component {
     openBook(e) {
         this.setState({
             bookId: e.target.value,
-            screen: 'book'
+            screen: 'book',
+            search: ''
         })
     }
 
