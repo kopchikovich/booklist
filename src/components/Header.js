@@ -5,7 +5,7 @@ import Button from './button'
 const Header = (props) => {
 
     const {screen} = props
-    const searchInput = <SearchInput  className='header__search-input search-input' key='search-inpt' searchHandler={props.searchHandler} />
+    const searchInput = <SearchInput  className='header__search-input input' key='search-inpt' searchHandler={props.searchHandler} />
     const listButton = <Button className='header__button button' key='list-btn' title='list' onClickHandler={props.openSearchScreen} />
     const userButton = <Button className='header__button button button--percon-icon' key='user-btn' onClickHandler={props.openUserScreen} />
 

@@ -15,7 +15,7 @@ const BookList = (props) => {
             return book.title.search(regexp) !== -1 || book.author.search(regexp) !== -1
         })
     }
-    
+
     const list = booksToRender.map((book, i) => {
         return (
             <li key={i} className="booklist__book">

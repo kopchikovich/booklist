@@ -7,7 +7,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'book',
+            screen: 'login',
             search: '',
             bookId: '',
             lastBookId: 'psad51sso',
@@ -28,6 +28,8 @@ class App extends Component {
                     state={this.state}
                     openBook={this.openBook.bind(this)}
                     switchTheme={this.switchTheme.bind(this)}
+                    login={this.login.bind(this)}
+                    exit={this.exit.bind(this)}
                 />
             </div>
         )
@@ -75,6 +77,26 @@ class App extends Component {
                 lightTheme: false
             })
         }
+    }
+    login(e) {
+        e.preventDefault()
+        const form = e.target
+
+        if (form.email.value === '1@2.3' && form.password.value === '123') {
+            this.setState({
+                screen: 'book'
+            })
+        } else {
+            form.classList.add('shake')
+            setTimeout(() => {
+                form.classList.remove('shake')
+            }, 300);
+        }
+    }
+    exit() {
+        this.setState({
+            screen: 'login'
+        })
     }
 }
 

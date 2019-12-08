@@ -57,8 +57,8 @@ body {
     align-items: center;
 }
 
-/**************************** search-input ****************************/
-.search-input {
+/**************************** input ****************************/
+.input {
     margin: 5px;
     padding: 5px;
     width: 250px;
@@ -182,4 +182,26 @@ body {
 }
 .user__button-exit {
     margin-top: 30px;
+}
+
+/**************************** login ****************************/
+.login {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    transition: 0.3s;
+}
+.login__input {
+    width: 300px;
+    font-size: 24px;
+}
+.login__submit {
+    opacity: 0.8;
+    padding: 5px 10px;
+}
+/******** shake ********/
+.shake {
+    margin-right: 50px;
 }
