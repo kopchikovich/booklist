@@ -7,7 +7,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'login',
+            screen: 'add-book',
             search: '',
             bookId: '',
             lastBookId: 'psad51sso',
@@ -19,10 +19,11 @@ class App extends Component {
         return (
             <div className='app'>
                 <Header 
+                    screen={this.state.screen}
                     searchHandler={this.searchHandler.bind(this)}
                     openSearchScreen={this.openSearchScreen.bind(this)}
                     openUserScreen={this.openUserScreen.bind(this)}
-                    screen={this.state.screen}
+                    openAddBookScreen={this.openAddBookScreen.bind(this)}
                 />
                 <Main 
                     state={this.state}
@@ -35,9 +36,11 @@ class App extends Component {
         )
     }
 
-    searchHandler(search) {
+    openBook(e) {
         this.setState({
-            search
+            bookId: e.target.value,
+            screen: 'book',
+            search: ''
         })
     }
 
@@ -47,18 +50,23 @@ class App extends Component {
         })
     }
 
-    openBook(e) {
-        this.setState({
-            bookId: e.target.value,
-            screen: 'book',
-            search: ''
-        })
-    }
-
     openUserScreen() {
         this.setState({
             screen: 'user',
             search: ''
+        })
+    }
+
+    openAddBookScreen() {
+        this.setState({
+            screen: 'add-book',
+            search: ''
+        })
+    }
+
+    searchHandler(search) {
+        this.setState({
+            search
         })
     }
 
@@ -78,6 +86,7 @@ class App extends Component {
             })
         }
     }
+
     login(e) {
         e.preventDefault()
         const form = e.target
@@ -93,6 +102,7 @@ class App extends Component {
             }, 300);
         }
     }
+
     exit() {
         this.setState({
             screen: 'login'
