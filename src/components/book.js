@@ -9,7 +9,7 @@ const Book = (props) => {
         <article className='book'>
             <img
                 className='book__cover'
-                src={book.img? book.id : 'img/empty.jpg'} 
+                src={book.img? book.img : 'img/empty.jpg'} 
                 alt='book cover'
             />
             <p className='book__title'>"{book.title}"</p>
