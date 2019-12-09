@@ -6,7 +6,7 @@ const Header = (props) => {
 
     const {screen} = props
     const searchInput = <SearchInput  className='header__search-input input' key='search-inpt' searchHandler={props.searchHandler} />
-    const listButton = <Button className='header__button button' key='list-btn' title='booklist' onClickHandler={props.openSearchScreen} />
+    const listButton = <Button className='header__button button' key='list-btn' title='booklist' onClickHandler={props.openBookListScreen} />
     const addButton = <Button className='header__button button button--add' key='add-btn' title='+' onClickHandler={props.openAddBookScreen} />
     const userButton = <Button className='header__button button button--percon-icon' key='user-btn' onClickHandler={props.openUserScreen} />
 
