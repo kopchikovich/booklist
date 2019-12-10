@@ -1,5 +1,5 @@
 import React from 'react'
-import db from '../data'
+import {db} from '../data'
 import Checkbox from './checkbox'
 import Button from './button'
 

@@ -12,7 +12,7 @@ const Main = (props) => {
     const userScreen = <User lastBookId={props.state.lastBookId} switchTheme={props.switchTheme} lightTheme={props.state.lightTheme} exit={props.exit} />;
     const loginScreen = <LoginForm login={props.login} />;
     const addBookScreen = <AddBookForm />;
-    
+
     const {screen} = props.state;
     let renderScreen = null;
 

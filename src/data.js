@@ -41,4 +41,8 @@ const db = {
     )
 }
 
-export default db;
+const sortedBooks = Object.values(db).sort((a,b) => {
+    return b.dateOfReading-a.dateOfReading
+})
+
+export {db, sortedBooks}

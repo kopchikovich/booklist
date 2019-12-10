@@ -1,10 +1,12 @@
 import React from 'react'
-import db from '../data'
+import {db, sortedBooks} from '../data'
 
 const Book = (props) => {
+
     const book = db[props.bookId];
     const dateOfReading = book.dateOfReading.toDateString();
     const quotes = book.quotes.map((item, i) => {return <li key={i}>"{item}"</li>});
+
     return  (
         <article className='book'>
             <img
