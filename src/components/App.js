@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Header from './header'
 import Main from './main'
+import {sortedBooks} from '../data'
 
 class App extends Component {
 

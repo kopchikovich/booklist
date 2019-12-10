@@ -8,8 +8,16 @@ const Book = (props) => {
     const dateOfReading = book.dateOfReading.toDateString();
     const quotes = book.quotes.map((item, i) => {return <li key={i}>"{item}"</li>});
 
+    const isBorderBook = (checkingBookId, bookId) => {
+        if (checkingBookId === bookId) {
+            return true;
+        }
+        return false;
+    };
+
     return  (
         <section>
+
             <article className='book'>
                 <img
                     className='book__cover'
@@ -23,10 +31,22 @@ const Book = (props) => {
                 <p className='book__text book__text--left'>Цитаты:</p>
                 <ul className='book__text'>{quotes}</ul>
             </article>
+
             <div className='controls'>
-                <Button className='controls__button' title='<' onclickHandler={null} />
-                <Button className='controls__button' title='>' onclickHandler={null} />
+                <Button
+                    className='controls__button'
+                    title='<'
+                    onclickHandler={null}
+                    disabled={isBorderBook(props.lastBookId, props.bookId)}
+                />
+                <Button
+                    className='controls__button'
+                    title='>'
+                    onclickHandler={null}
+                    disabled={isBorderBook(sortedBooks[sortedBooks.length-1].id, props.bookId)}
+                />
             </div>
+
         </section>
     )
 }

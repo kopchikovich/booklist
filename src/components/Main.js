@@ -7,7 +7,7 @@ import AddBookForm from './add-book-form'
 
 const Main = (props) => {
 
-    const bookScreen = <Book bookId={props.state.bookId ? props.state.bookId : props.state.lastBookId} />;
+    const bookScreen = <Book bookId={props.state.bookId ? props.state.bookId : props.state.lastBookId} lastBookId={props.state.lastBookId} />;
     const bookListScreen = <BookList state={props.state} openBook={props.openBook} />;
     const userScreen = <User lastBookId={props.state.lastBookId} switchTheme={props.switchTheme} lightTheme={props.state.lightTheme} exit={props.exit} />;
     const loginScreen = <LoginForm login={props.login} />;
