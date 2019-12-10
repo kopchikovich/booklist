@@ -150,6 +150,29 @@ body {
     margin-top: 10px;
 }
 
+/**************************** controls ****************************/
+.controls {
+    width: 100%;
+    max-width: var(--max-width);
+    position: fixed;
+    top: 45vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controls__button {
+    width: 30px;
+    height: 70px;
+    font-size: 26px;
+    opacity: 0.35;
+}
+.controls__button:active, .controls__button:hover {
+    opacity: 1;
+}
+.controls__button:disabled {
+    opacity: 0;
+}
+
 /**************************** booklist ****************************/
 .booklist {
     text-align: left;
