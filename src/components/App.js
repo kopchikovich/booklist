@@ -8,10 +8,10 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'book',
+            screen: 'login',
             search: '',
-            bookId: '',
-            lastBookId: 'psad51sso',
+            bookId: props.lastBookId,
+            lastBookId: props.lastBookId,
             lightTheme: false
         }
     }
@@ -29,6 +29,8 @@ class App extends Component {
                 <Main 
                     state={this.state}
                     openBook={this.openBook.bind(this)}
+                    switchBookToOlder={this.switchBookToOlder.bind(this)}
+                    switchBookToNewer={this.switchBookToNewer.bind(this)}
                     switchTheme={this.switchTheme.bind(this)}
                     login={this.login.bind(this)}
                     exit={this.exit.bind(this)}
@@ -68,6 +70,24 @@ class App extends Component {
     searchHandler(search) {
         this.setState({
             search
+        })
+    }
+
+    switchBookToOlder() {
+        const newBook = sortedBooks[sortedBooks.findIndex((el) => {
+            return el.id === this.state.bookId
+        }) + 1].id
+        this.setState({
+            bookId: newBook
+        })
+    }
+
+    switchBookToNewer() {
+        const newBook = sortedBooks[sortedBooks.findIndex((el) => {
+            return el.id === this.state.bookId
+        }) - 1].id
+        this.setState({
+            bookId: newBook
         })
     }
 
