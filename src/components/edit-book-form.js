@@ -5,10 +5,15 @@ import Button from './button'
 
 const EditBookForm = (props) => {
 
-    const book = db[props.bookId]
+    let book = db[props.bookId]
     
     const deleteBook = () => {
-        delete db[props.bookId]
+        delete db[props.bookId] // not work
+    }
+
+    const editBook = (e) => {
+        e.preventDefault()
+        book = Object.assign(book, e.target) // not work
     }
 
     return (
@@ -22,7 +27,7 @@ const EditBookForm = (props) => {
 
             <AddBookForm
                 book={book}
-                submitHandler={null}
+                submitHandler={editBook}
             />
 
         </section>
