@@ -4,6 +4,7 @@ import BookList from './booklist'
 import User from './user'
 import LoginForm from './login-form'
 import AddBookForm from './add-book-form'
+import EditBookForm from './edit-book-form'
 
 const Main = (props) => {
 
@@ -31,6 +32,11 @@ const Main = (props) => {
             login={props.login}
         />)
     const addBookScreen = <AddBookForm />
+    const editBookScreen = (
+        <EditBookForm
+            bookId={props.state.bookId}
+        />
+    )
 
     const {screen} = props.state;
     let renderScreen = null;
@@ -46,6 +52,8 @@ const Main = (props) => {
             renderScreen = loginScreen; break;
         case 'add-book':
             renderScreen = addBookScreen; break;
+        case 'edit-book':
+            renderScreen = editBookScreen; break;
         default:
             renderScreen = bookListScreen; break;
     }

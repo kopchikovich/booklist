@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'book',
+            screen: 'edit-book',
             search: '',
             bookId: props.lastBookId,
             lastBookId: props.lastBookId,
@@ -25,6 +25,7 @@ class App extends Component {
                     openBookListScreen={this.openBookListScreen.bind(this)}
                     openUserScreen={this.openUserScreen.bind(this)}
                     openAddBookScreen={this.openAddBookScreen.bind(this)}
+                    openEditBookScreen={this.openEditBookScreen.bind(this)}
                 />
                 <Main 
                     state={this.state}
@@ -63,6 +64,13 @@ class App extends Component {
     openAddBookScreen() {
         this.setState({
             screen: 'add-book',
+            search: ''
+        })
+    }
+
+    openEditBookScreen() {
+        this.setState({
+            screen: 'edit-book',
             search: ''
         })
     }

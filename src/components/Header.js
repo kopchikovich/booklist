@@ -5,12 +5,44 @@ import Button from './button'
 const Header = (props) => {
 
     const {screen} = props
-    const searchInput = <SearchInput  className='input header__search-input' key='search-inpt' searchHandler={props.searchHandler} />
-    const listButton = <Button className='header__button header__button--list button' key='list-btn' title='booklist' onClickHandler={props.openBookListScreen} />
-    const editButton = screen === 'book' && <Button className='header__button header__button--edit button' key='edit-btn'
-    title={<span className='button--edit__icon'/>} onClickHandler={null} />
-    const addButton = <Button className='header__button button button--add' key='add-btn' title='+' onClickHandler={props.openAddBookScreen} />
-    const userButton = <Button className='header__button button button--percon-icon' key='user-btn' onClickHandler={props.openUserScreen} />
+    const searchInput = (
+        <SearchInput
+            className='input header__search-input'
+            key='search-inpt'
+            searchHandler={props.searchHandler}
+        />
+    )
+    const listButton = (
+        <Button
+            className='header__button header__button--list button'
+            key='list-btn'
+            title='booklist'
+            onClickHandler={props.openBookListScreen}
+        />
+    )
+    const editButton = (screen === 'book' &&
+        <Button
+            className='header__button header__button--edit button'
+            key='edit-btn'
+            title={<span className='button--edit__icon'/>}
+            onClickHandler={props.openEditBookScreen}
+        />
+    )
+    const addButton = (
+        <Button
+            className='header__button button button--add'
+            key='add-btn'
+            title='+'
+            onClickHandler={props.openAddBookScreen}
+        />
+    )
+    const userButton = (
+        <Button
+            className='header__button button button--percon-icon'
+            key='user-btn'
+            onClickHandler={props.openUserScreen}
+        />
+    )
 
     return (
         <header className='app__header header'>
