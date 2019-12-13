@@ -6,6 +6,10 @@ import Button from './button'
 const EditBookForm = (props) => {
 
     const book = db[props.bookId]
+    
+    const deleteBook = () => {
+        delete db[props.bookId]
+    }
 
     return (
         <section>
@@ -13,7 +17,7 @@ const EditBookForm = (props) => {
             <Button
                 className='button button--warning'
                 title='Удалить книгу'
-                onClickHandler={null}
+                onClickHandler={deleteBook}
             />
 
             <AddBookForm

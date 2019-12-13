@@ -46,7 +46,7 @@ const AddBookForm = (props) => {
             <label className='add-form__row'>
                 <span>Обложка</span>
                 <input
-                    className='add-form__input add-form__input--file'
+                    className='add-form__input add-form__input--file add-form__input--small-text'
                     type='file'
                 />
             </label>
