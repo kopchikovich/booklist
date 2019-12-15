@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'edit-book',
+            screen: 'login',
             search: '',
             bookId: props.lastBookId,
             lastBookId: props.lastBookId,
@@ -119,7 +119,6 @@ class App extends Component {
     login(e) {
         e.preventDefault()
         const form = e.target
-
         if (form.email.value === '1@2.3' && form.password.value === '123') {
             this.setState({
                 screen: 'book'

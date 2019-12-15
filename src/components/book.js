@@ -4,7 +4,7 @@ import {db, sortedBooks} from '../data'
 
 const Book = (props) => {
 
-    const book = db[props.bookId];
+    const book = db[props.bookId]
     const dateOfReading = book.dateOfReading.toDateString();
     const quotes = book.quotes.map((item, i) => {
         return <li key={i}>"{item}"</li>
@@ -12,9 +12,9 @@ const Book = (props) => {
 
     const isBorderBook = (checkingBookId, bookId) => {
         if (checkingBookId === bookId) {
-            return true;
+            return true
         }
-        return false;
+        return false
     };
 
     return  (

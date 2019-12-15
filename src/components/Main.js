@@ -14,24 +14,30 @@ const Main = (props) => {
             lastBookId={props.state.lastBookId}
             switchBookToOlder={props.switchBookToOlder}
             switchBookToNewer={props.switchBookToNewer}
-        />)
+        />
+    )
     const bookListScreen = (
         <BookList
             state={props.state}
             openBook={props.openBook}
-        />)
+        />
+    )
     const userScreen = (
         <User
             lastBookId={props.state.lastBookId}
             switchTheme={props.switchTheme}
             lightTheme={props.state.lightTheme}
             exit={props.exit}
-        />)
+        />
+    )
     const loginScreen = (
         <LoginForm
             login={props.login}
-        />)
-    const addBookScreen = <AddBookForm />
+        />
+    )
+    const addBookScreen = (
+        <AddBookForm />
+    )
     const editBookScreen = (
         <EditBookForm
             bookId={props.state.bookId}
