@@ -27,7 +27,7 @@ const Main = (props) => {
             lastBookId={props.state.lastBookId}
             switchTheme={props.switchTheme}
             lightTheme={props.state.lightTheme}
-            exit={props.exit}
+            logout={props.logout}
         />
     )
     const loginScreen = (

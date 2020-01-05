@@ -16,7 +16,7 @@ const User = (props) => {
             <p className='user__text user__switch-theme'>Светлая тема 
                 <Checkbox className='user__checkbox' onChangeHandler={props.switchTheme} isChecked={props.lightTheme} />
             </p>
-            <Button className='user__button-exit' title='Выйти из аккаунта' onClickHandler={props.exit} />
+            <Button className='user__button-exit' title='Выйти из аккаунта' onClickHandler={props.logout} />
         </article>
     )
 }

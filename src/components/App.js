@@ -34,7 +34,7 @@ class App extends Component {
                     switchBookToNewer={this.switchBookToNewer.bind(this)}
                     switchTheme={this.switchTheme.bind(this)}
                     login={this.login.bind(this)}
-                    exit={this.exit.bind(this)}
+                    logout={this.logout.bind(this)}
                 />
             </div>
         )
@@ -131,7 +131,7 @@ class App extends Component {
         }
     }
 
-    exit() {
+    logout() {
         this.setState({
             screen: 'login'
         })
