@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'login',
+            screen: 'index',
             search: '',
             bookId: props.lastBookId,
             lastBookId: props.lastBookId,
