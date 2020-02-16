@@ -21,7 +21,6 @@ const Book = (props) => {
         <section>
 
             <article className='book'>
-                <img className='book__cover' src={book.img? book.img : 'img/empty.jpg'} alt='book cover' />
                 <p className='book__title'>"{book.title}"</p>
                 <p className='book__author'>{book.author}</p>
                 <p className='book__text book__date'>Прочитано: {dateOfReading}</p>
