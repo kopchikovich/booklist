@@ -43,6 +43,7 @@ const AddBookForm = (props) => {
                     type='text'
                     name='title'
                     defaultValue={book? book.title : ''}
+                    required
                 />
             </label>
             <label className='add-form__row'>
@@ -52,6 +53,7 @@ const AddBookForm = (props) => {
                     type='text'
                     name='author'
                     defaultValue={book? book.author : ''}
+                    required
                 />
             </label>
             <label className='add-form__row'>
@@ -61,6 +63,7 @@ const AddBookForm = (props) => {
                     type='date'
                     name='dateOfReading'
                     defaultValue={book? getDateString(date) : ''}
+                    required
                 />
             </label>
             <label className='add-form__row'>
@@ -70,6 +73,7 @@ const AddBookForm = (props) => {
                     type='text'
                     name='mainIdea'
                     defaultValue={book? book.mainIdea : ''}
+                    required
                 />
             </label>
             <label className='add-form__row'>
@@ -79,6 +83,7 @@ const AddBookForm = (props) => {
                     name='quotes'
                     placeholder='Если цитат больше одной, между ними оставлять пустую строку'
                     defaultValue={quotes}
+                    required
                 />
             </label>
             <Button
