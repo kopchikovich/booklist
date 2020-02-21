@@ -11,6 +11,8 @@ const Main = (props) => {
     const bookScreen = (
         <Book
             bookId={props.state.bookId ? props.state.bookId : props.state.lastBookId}
+            booksDb={props.booksDb}
+            sortedBooks={props.sortedBooks}
             lastBookId={props.state.lastBookId}
             switchBookToOlder={props.switchBookToOlder}
             switchBookToNewer={props.switchBookToNewer}

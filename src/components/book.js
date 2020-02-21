@@ -1,11 +1,9 @@
 import React from 'react'
 import Button from './button'
-import {db, sortedBooks} from '../data'
 
 const Book = (props) => {
 
-    const book = db[props.bookId]
-    const dateOfReading = book.dateOfReading.toDateString();
+    const book = props.booksDb.open()[props.bookId]
     const quotes = book.quotes.map((item, i) => {
         return <li key={i}>"{item}"</li>
     });
@@ -23,7 +21,7 @@ const Book = (props) => {
             <article className='book'>
                 <p className='book__title'>"{book.title}"</p>
                 <p className='book__author'>{book.author}</p>
-                <p className='book__text book__date'>Прочитано: {dateOfReading}</p>
+                <p className='book__text book__date'>Прочитано: {book.dateOfReading}</p>
                 <p className='book__text book__text--line'>Главная мысль: {book.mainIdea}</p>
                 <p className='book__text book__text--left'>Цитаты:</p>
                 <ul className='book__text'>{quotes}</ul>
@@ -40,7 +38,7 @@ const Book = (props) => {
                     className='controls__button'
                     title='>'
                     onClickHandler={props.switchBookToOlder}
-                    disabled={isBorderBook(sortedBooks[sortedBooks.length-1].id, props.bookId)}
+                    disabled={isBorderBook(props.sortedBooks[props.sortedBooks.length-1].id, props.bookId)}
                 />
             </div>
 

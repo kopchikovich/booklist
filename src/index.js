@@ -1,7 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
 import App from './components/app'
-import {sortedBooks} from './data'
 import Db from './db'
 
 // message api
@@ -38,11 +37,15 @@ const makeMessage = (text, color) => {
 
 // make or connect to db
 const booksDb = new Db('books')
-// const sortedBooks =
+let sortedBooks = null
+if (Object.keys(booksDb.open()).length > 0) {
+    sortedBooks = booksDb.getSortedBooks();
+}
 
 render((
     <App
-        lastBookId={sortedBooks[0].id}
+        lastBookId={sortedBooks? sortedBooks[0].id : sortedBooks}
+        sortedBooks={sortedBooks}
         booksDb={booksDb}
     />
 ), document.getElementById('root'))

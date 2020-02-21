@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import Header from './header'
 import Main from './main'
-import {sortedBooks} from '../data'
 
 class App extends Component {
 
@@ -30,6 +29,7 @@ class App extends Component {
                 <Main 
                     state={this.state}
                     booksDb={this.props.booksDb}
+                    sortedBooks={this.props.sortedBooks}
                     openBook={this.openBook.bind(this)}
                     openBookListScreen={this.openBookListScreen.bind(this)}
                     switchBookToOlder={this.switchBookToOlder.bind(this)}
@@ -84,7 +84,7 @@ class App extends Component {
     }
 
     switchBookToOlder() {
-        const newBook = sortedBooks[sortedBooks.findIndex((el) => {
+        const newBook = this.props.sortedBooks[this.props.sortedBooks.findIndex((el) => {
             return el.id === this.state.bookId
         }) + 1].id
         this.setState({
@@ -93,7 +93,7 @@ class App extends Component {
     }
 
     switchBookToNewer() {
-        const newBook = sortedBooks[sortedBooks.findIndex((el) => {
+        const newBook = this.props.sortedBooks[this.props.sortedBooks.findIndex((el) => {
             return el.id === this.state.bookId
         }) - 1].id
         this.setState({

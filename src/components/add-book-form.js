@@ -8,6 +8,11 @@ const AddBookForm = (props) => {
     const quotes = book? book.quotes.join('\n\n') : ''
 
     const getDateString = (date) => {
+
+        if (typeof date === 'string') {
+            return date
+        }
+
         let year = date.getFullYear()
         let month = date.getMonth() + 1
         let day = date.getDate()
@@ -62,7 +67,7 @@ const AddBookForm = (props) => {
                     className='add-form__input add-form__input--date input'
                     type='date'
                     name='dateOfReading'
-                    defaultValue={book? getDateString(date) : ''}
+                    defaultValue={book? getDateString(book.dateOfReading) : ''}
                     required
                 />
             </label>

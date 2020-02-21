@@ -1,11 +1,10 @@
 import React from 'react'
-import {db} from '../data'
 import AddBookForm from './add-book-form'
 import Button from './button'
 
 const EditBookForm = (props) => {
 
-    let book = db[props.bookId]
+    let book = props.booksDb.open()[props.bookId]
     
     const deleteBook = () => {
         props.booksDb.delete(props.bookId)
