@@ -36,11 +36,17 @@ const Main = (props) => {
         />
     )
     const addBookScreen = (
-        <AddBookForm />
+        <AddBookForm
+            booksDb={props.booksDb}
+            openBook={props.openBook}
+        />
     )
     const editBookScreen = (
         <EditBookForm
             bookId={props.state.bookId}
+            booksDb={props.booksDb}
+            openBook={props.openBook}
+            openBookListScreen={props.openBookListScreen}
         />
     )
 

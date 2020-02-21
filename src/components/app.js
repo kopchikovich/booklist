@@ -8,7 +8,7 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'login',
+            screen: 'book',
             search: '',
             bookId: props.lastBookId,
             lastBookId: props.lastBookId,
@@ -29,7 +29,9 @@ class App extends Component {
                 />
                 <Main 
                     state={this.state}
+                    booksDb={this.props.booksDb}
                     openBook={this.openBook.bind(this)}
+                    openBookListScreen={this.openBookListScreen.bind(this)}
                     switchBookToOlder={this.switchBookToOlder.bind(this)}
                     switchBookToNewer={this.switchBookToNewer.bind(this)}
                     switchTheme={this.switchTheme.bind(this)}
@@ -40,9 +42,9 @@ class App extends Component {
         )
     }
 
-    openBook(e) {
+    openBook(e, id) {
         this.setState({
-            bookId: e.target.value,
+            bookId: id? id : e.target.value,
             screen: 'book',
             search: ''
         })
