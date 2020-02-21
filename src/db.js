@@ -1,4 +1,4 @@
-class db {
+class Db {
 
     constructor(name) {
         this.dbName = name;
@@ -21,6 +21,7 @@ class db {
         db[id] = Object.assign(item, {id});
 
         this.save(db);
+        return id;
     }
 
     edit(item, id) {
@@ -28,6 +29,7 @@ class db {
         db[id] = Object.assign(db[id], item);
 
         this.save(db);
+        return id;
     }
 
     delete(id) {
@@ -59,8 +61,4 @@ class db {
     }
 }
 
-
-// delete when production!!!
-document.db = db;
-
-export default db
+export default Db
