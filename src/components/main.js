@@ -21,12 +21,14 @@ const Main = (props) => {
     const bookListScreen = (
         <BookList
             state={props.state}
+            sortedBooks={props.sortedBooks}
             openBook={props.openBook}
         />
     )
     const userScreen = (
         <User
             lastBookId={props.state.lastBookId}
+            booksDb={props.booksDb}
             switchTheme={props.switchTheme}
             lightTheme={props.state.lightTheme}
             logout={props.logout}

@@ -1,12 +1,11 @@
 import React from 'react'
-import {db} from '../data'
 import Checkbox from './checkbox'
 import Button from './button'
 
 const User = (props) => {
 
-    const lastBookTitle = db[props.lastBookId].title
-    const totalRead = Object.keys(db).length
+    const lastBookTitle = props.booksDb.open()[props.lastBookId].title
+    const totalRead = Object.keys(props.booksDb.open()).length
 
     return (
         <article className="user">

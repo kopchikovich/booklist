@@ -1,13 +1,13 @@
 import React from 'react'
-import {sortedBooks} from '../data'
 
 const BookList = (props) => {
 
     const {search} = props.state
-    let booksToRender = sortedBooks
+    let booksToRender = props.sortedBooks
+
     if (search) {
         const regexp = new RegExp(`\\s${search}[а-я]?\\s|^${search}[а-я]?\\s|\\s${search}[а-я]?.$`, "gim")
-        booksToRender = sortedBooks.filter((book) => {
+        booksToRender = props.sortedBooks.filter((book) => {
             return book.title.search(regexp) !== -1 || book.author.search(regexp) !== -1
         })
     }

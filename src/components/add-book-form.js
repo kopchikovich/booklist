@@ -4,7 +4,6 @@ import Button from './button'
 const AddBookForm = (props) => {
 
     const book = props.book? props.book : null
-    const date = book? book.dateOfReading : null
     const quotes = book? book.quotes.join('\n\n') : ''
 
     const getDateString = (date) => {

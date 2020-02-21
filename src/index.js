@@ -3,8 +3,8 @@ import {render} from 'react-dom'
 import App from './components/app'
 import Db from './db'
 
-// message api
 document.controller = {}
+// message api
 document.controller.renderMessage = (text, color) => {
 
     const TOP_POSITION = 0;
