@@ -13,9 +13,21 @@ const EditBookForm = (props) => {
         props.openBookListScreen()
     }
 
-    const editBook = (e) => {
+    const editBook = (e) => {                              // НАДО ПРОТЕСТИРОВАТЬ!
         e.preventDefault()
-        book = Object.assign(book, e.target) // not work
+        const form = e.target.elements
+        const quotes = form.quotes.value.split('\n\n')
+
+        const book = {
+            title: form.title.value,
+            author: form.author.value,
+            dateOfReading: form.dateOfReading.value,
+            mainIdea: form.mainIdea.value,
+            quotes
+        }
+        props.booksDb.edit(book, props.bookId)
+        document.controller.renderMessage('Книга отредактирована', 'green')
+        props.openBook(null, props.bookId)
     }
 
     return (
@@ -29,7 +41,7 @@ const EditBookForm = (props) => {
 
             <AddBookForm
                 book={book}
-                submitHandler={editBook}
+                submitHandler={editBook.bind(this)}
             />
 
         </section>
