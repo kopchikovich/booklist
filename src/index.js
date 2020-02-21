@@ -1,6 +1,48 @@
-import React from 'react';
-import {render} from 'react-dom';
-import App from './components/app';
+import React from 'react'
+import {render} from 'react-dom'
+import App from './components/app'
 import {sortedBooks} from './data'
+import Db from './db'
 
-render(<App lastBookId={sortedBooks[0].id} />, document.getElementById('root'));
+// message api
+document.controller = {}
+document.controller.renderMessage = (text, color) => {
+
+    const TOP_POSITION = 0;
+    const TIMEOUT = 3000;
+    const container = document.getElementById('message');
+    const message = makeMessage(text, color);
+
+    container.appendChild(message);
+    // for animation
+    setTimeout(() => {
+        message.style.top = TOP_POSITION;
+    }, 100);
+    setTimeout(() => {
+        container.removeChild(message);
+    }, TIMEOUT);
+}
+
+const makeMessage = (text, color) => {
+
+    const message = document.createElement('div');
+    const renderColor = color === 'green'? '#0a0' : '#a00';
+
+    message.className = 'message';
+    message.innerHTML = text;
+    message.style.color = renderColor;
+    
+    return message;
+}
+
+
+// make or connect to db
+const booksDb = new Db('books')
+// const sortedBooks =
+
+render((
+    <App
+        lastBookId={sortedBooks[0].id}
+        booksDb={booksDb}
+    />
+), document.getElementById('root'))
