@@ -17,13 +17,31 @@ const AddBookForm = (props) => {
         return `${year}-${month}-${day}`
     }
 
+    const addBook = (e) => {
+        e.preventDefault()
+        const form = e.target.elements
+        const quotes = form.quotes.value.split('\n\n')
+
+        const book = {
+            title: form.title.value,
+            author: form.author.value,
+            dateOfReading: form.dateOfReading.value,
+            mainIdea: form.mainIdea.value,
+            quotes
+        }
+        let id = props.booksDb.add(book)
+        document.controller.renderMessage('Книга записана в базу', 'green')
+        props.openBook(null, id)
+    }
+
     return (
-        <form className='add-form' onSubmit={props.submitHandler}>
+        <form className='add-form' onSubmit={props.submitHandler? props.submitHandler : addBook}>
             <label className='add-form__row'>
                 <span>Название</span>
                 <input
                     className='add-form__input input'
                     type='text'
+                    name='title'
                     defaultValue={book? book.title : ''}
                 />
             </label>
@@ -32,6 +50,7 @@ const AddBookForm = (props) => {
                 <input
                     className='add-form__input input'
                     type='text'
+                    name='author'
                     defaultValue={book? book.author : ''}
                 />
             </label>
@@ -40,6 +59,7 @@ const AddBookForm = (props) => {
                 <input
                     className='add-form__input add-form__input--date input'
                     type='date'
+                    name='dateOfReading'
                     defaultValue={book? getDateString(date) : ''}
                 />
             </label>
@@ -48,6 +68,7 @@ const AddBookForm = (props) => {
                 <input
                     className='add-form__input add-form__input--small-text input'
                     type='text'
+                    name='mainIdea'
                     defaultValue={book? book.mainIdea : ''}
                 />
             </label>
@@ -55,6 +76,7 @@ const AddBookForm = (props) => {
                 <span>Цитаты</span>
                 <textarea
                     className='add-form__textarea'
+                    name='quotes'
                     placeholder='Если цитат больше одной, между ними оставлять пустую строку'
                     defaultValue={quotes}
                 />
