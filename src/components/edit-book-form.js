@@ -8,7 +8,9 @@ const EditBookForm = (props) => {
     let book = db[props.bookId]
     
     const deleteBook = () => {
-        delete db[props.bookId] // not work
+        props.booksDb.delete(props.bookId)
+        document.controller.renderMessage('Книга удалена')
+        props.openBookListScreen()
     }
 
     const editBook = (e) => {
