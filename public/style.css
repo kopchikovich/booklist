@@ -337,8 +337,8 @@ button.header__button--edit {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--second--bg-color);
-    background-color: var(--modal-text-color);
+    color: var(--main-bg-color);
+    background-color: var(--main-color);
     width: 100%;
     min-height: 60px;
     box-sizing: border-box;
