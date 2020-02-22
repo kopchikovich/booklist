@@ -33,7 +33,7 @@ const Book = (props) => {
                     className='controls__button'
                     title='<'
                     onClickHandler={props.switchBookToNewer}
-                    disabled={isBorderBook(props.lastBookId, props.bookId)}
+                    disabled={isBorderBook(sortedBooks[0].id, props.bookId)}
                 />
                 <Button
                     className='controls__button'
