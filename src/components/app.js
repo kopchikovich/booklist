@@ -28,8 +28,6 @@ class App extends Component {
                 />
                 <Main 
                     state={this.state}
-                    booksDb={this.props.booksDb}
-                    sortedBooks={this.props.sortedBooks}
                     openBook={this.openBook.bind(this)}
                     openBookListScreen={this.openBookListScreen.bind(this)}
                     switchBookToOlder={this.switchBookToOlder.bind(this)}
@@ -84,7 +82,8 @@ class App extends Component {
     }
 
     switchBookToOlder() {
-        const newBook = this.props.sortedBooks[this.props.sortedBooks.findIndex((el) => {
+        const sortedBooks = document.controller.sortedBooks
+        const newBook = sortedBooks[sortedBooks.findIndex((el) => {
             return el.id === this.state.bookId
         }) + 1].id
         this.setState({
@@ -93,7 +92,8 @@ class App extends Component {
     }
 
     switchBookToNewer() {
-        const newBook = this.props.sortedBooks[this.props.sortedBooks.findIndex((el) => {
+        const sortedBooks = document.controller.sortedBooks
+        const newBook = sortedBooks[sortedBooks.findIndex((el) => {
             return el.id === this.state.bookId
         }) - 1].id
         this.setState({

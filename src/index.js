@@ -34,16 +34,15 @@ document.controller.renderMessage = (text, color) => {
 }
 
 // make or connect to db
-const booksDb = new Db('books')
-let sortedBooks = null
-if (Object.keys(booksDb.open()).length > 0) {
-    sortedBooks = booksDb.getSortedBooks();
+document.controller.db = new Db('books')
+document.controller.updateSortedBooks = () => {
+    document.controller.sortedBooks = document.controller.db.getSortedBooks()
 }
+document.controller.updateSortedBooks()
+const sortedBooks = document.controller.sortedBooks
 
 render((
     <App
         lastBookId={sortedBooks? sortedBooks[0].id : sortedBooks}
-        sortedBooks={sortedBooks}
-        booksDb={booksDb}
     />
 ), document.getElementById('root'))

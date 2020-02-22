@@ -53,10 +53,13 @@ class Db {
 
     getSortedBooks() {
         const db = this.open();
+        if (Object.keys(db).length === 0) {
+            return null;
+        }
+
         const sortedBooks = Object.values(db).sort((a,b) => {
             return b.dateOfReading-a.dateOfReading;
         });
-
         return sortedBooks;
     }
 }

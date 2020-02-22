@@ -7,11 +7,9 @@ const AddBookForm = (props) => {
     const quotes = book? book.quotes.join('\n\n') : ''
 
     const getDateString = (date) => {
-
         if (typeof date === 'string') {
             return date
         }
-
         let year = date.getFullYear()
         let month = date.getMonth() + 1
         let day = date.getDate()
@@ -33,7 +31,8 @@ const AddBookForm = (props) => {
             mainIdea: form.mainIdea.value,
             quotes
         }
-        let id = props.booksDb.add(book)
+        const id = document.controller.db.add(book)
+        document.controller.updateSortedBooks()
         document.controller.renderMessage('Книга записана в базу', 'green')
         props.openBook(null, id)
     }

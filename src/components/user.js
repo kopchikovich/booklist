@@ -4,8 +4,8 @@ import Button from './button'
 
 const User = (props) => {
 
-    const lastBookTitle = props.booksDb.open()[props.lastBookId].title
-    const totalRead = Object.keys(props.booksDb.open()).length
+    const lastBookTitle = document.controller.db.open()[props.lastBookId].title
+    const totalRead = Object.keys(document.controller.db.open()).length
 
     return (
         <article className="user">

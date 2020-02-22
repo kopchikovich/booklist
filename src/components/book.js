@@ -3,7 +3,8 @@ import Button from './button'
 
 const Book = (props) => {
 
-    const book = props.booksDb.open()[props.bookId]
+    const book = document.controller.db.open()[props.bookId]
+    const sortedBooks = document.controller.sortedBooks
     const quotes = book.quotes.map((item, i) => {
         return <li key={i}>"{item}"</li>
     });
@@ -38,7 +39,7 @@ const Book = (props) => {
                     className='controls__button'
                     title='>'
                     onClickHandler={props.switchBookToOlder}
-                    disabled={isBorderBook(props.sortedBooks[props.sortedBooks.length-1].id, props.bookId)}
+                    disabled={isBorderBook(sortedBooks[sortedBooks.length-1].id, props.bookId)}
                 />
             </div>
 

@@ -4,19 +4,19 @@ import Button from './button'
 
 const EditBookForm = (props) => {
 
-    let book = props.booksDb.open()[props.bookId]
+    let book = document.controller.db.open()[props.bookId]
     
     const deleteBook = () => {
-        props.booksDb.delete(props.bookId)
+        document.controller.db.delete(props.bookId)
+        document.controller.updateSortedBooks()
         document.controller.renderMessage('Книга удалена')
         props.openBookListScreen()
     }
 
-    const editBook = (e) => {                              // НАДО ПРОТЕСТИРОВАТЬ!
+    const editBook = (e) => {
         e.preventDefault()
         const form = e.target.elements
         const quotes = form.quotes.value.split('\n\n')
-
         const book = {
             title: form.title.value,
             author: form.author.value,
@@ -24,7 +24,8 @@ const EditBookForm = (props) => {
             mainIdea: form.mainIdea.value,
             quotes
         }
-        props.booksDb.edit(book, props.bookId)
+        document.controller.db.edit(book, props.bookId)
+        document.controller.updateSortedBooks()
         document.controller.renderMessage('Книга отредактирована', 'green')
         props.openBook(null, props.bookId)
     }
