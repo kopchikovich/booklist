@@ -56,9 +56,8 @@ class Db {
         if (Object.keys(db).length === 0) {
             return null;
         }
-
         const sortedBooks = Object.values(db).sort((a,b) => {
-            return b.dateOfReading-a.dateOfReading;
+            return new Date(b.dateOfReading) - new Date(a.dateOfReading);
         });
         return sortedBooks;
     }
