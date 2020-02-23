@@ -13,3 +13,49 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+const firebase_db = firebase.firestore();
+
+//changing db here | test <-> users
+const user = firebase_db.doc('test/kopchikovich');
+
+const printError = (error) => {
+    console.log(error.code + ' : ' + error.message);
+    document.controller.renderMessage(`${error.code} : ${error.message}`, 'red');
+}
+
+const firebase_signIn = (email, password) => {
+    localStorage.clear();
+
+    // sign in
+
+    firebase_getData();
+}
+
+const firebase_signOut = () => {
+    localStorage.clear();
+    
+    // sign out
+}
+
+const firebase_getData = () => {
+    user.get().then((doc) => {
+        if (doc.exists) {
+            const userData = doc.data();
+            const cloudBooks = JSON.parse(userData.books);
+            const localBooks = document.controller.db.open();
+            const newDb = Object.assign(localBooks, cloudBooks);
+    
+            document.controller.db.save(newDb);
+            document.controller.updateSortedBooks();
+            firebase_updateData();
+        }
+    }).catch(printError);
+}
+
+const firebase_updateData = () => {
+    user.update({
+        books: localStorage.getItem('books')
+    }).then(() => {
+        document.controller.renderMessage('База книг синхронизирована', 'green');
+    }).catch(printError);
+}
