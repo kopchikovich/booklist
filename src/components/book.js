@@ -4,6 +4,9 @@ import Button from './button'
 const Book = (props) => {
 
     const book = document.controller.db.open()[props.bookId]
+    if (!book) {
+        return <div>Не найдено книг в базе. Добавьте первую!</div>
+    }
     const sortedBooks = document.controller.sortedBooks
     const quotes = book.quotes.map((item, i) => {
         return <li key={i}>"{item}"</li>

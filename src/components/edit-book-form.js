@@ -1,6 +1,7 @@
 import React from 'react'
 import AddBookForm from './add-book-form'
 import Button from './button'
+import {firebase_updateData} from '../firebase'
 
 const EditBookForm = (props) => {
 
@@ -10,7 +11,9 @@ const EditBookForm = (props) => {
         document.controller.db.delete(props.bookId)
         document.controller.updateSortedBooks()
         document.controller.renderMessage('Книга удалена')
+        props.updateLastBookId()
         props.openBookListScreen()
+        firebase_updateData()
     }
 
     const editBook = (e) => {
@@ -27,7 +30,9 @@ const EditBookForm = (props) => {
         document.controller.db.edit(book, props.bookId)
         document.controller.updateSortedBooks()
         document.controller.renderMessage('Книга отредактирована', 'green')
+        props.updateLastBookId()
         props.openBook(null, props.bookId)
+        firebase_updateData()
     }
 
     return (

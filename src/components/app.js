@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
 import Header from './header'
 import Main from './main'
+import * as firebase from "firebase/app"
+import {firebase_signIn, firebase_signOut, firebase_getData} from '../firebase'
 
 class App extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            screen: 'book',
+            screen: 'login',
             search: '',
             bookId: props.lastBookId,
             lastBookId: props.lastBookId,
@@ -30,6 +32,7 @@ class App extends Component {
                     state={this.state}
                     openBook={this.openBook.bind(this)}
                     openBookListScreen={this.openBookListScreen.bind(this)}
+                    updateLastBookId={this.updateLastBookId.bind(this)}
                     switchBookToOlder={this.switchBookToOlder.bind(this)}
                     switchBookToNewer={this.switchBookToNewer.bind(this)}
                     switchTheme={this.switchTheme.bind(this)}
@@ -72,6 +75,12 @@ class App extends Component {
         this.setState({
             screen: 'edit-book',
             search: ''
+        })
+    }
+
+    updateLastBookId(id) {
+        this.setState({
+            lastBookId: document.controller.sortedBooks[0].id
         })
     }
 
@@ -121,22 +130,46 @@ class App extends Component {
     login(e) {
         e.preventDefault()
         const form = e.target
-        if (form.email.value === '1@2.3' && form.password.value === '123') {
-            this.setState({
-                screen: 'book'
-            })
-        } else {
+
+        firebase_signIn(form.email.value, form.password.value).then(() => {
+            console.log('Sign in')
+            document.controller.renderMessage(`Привет`, 'green')
+            firebase_getData(this)
+        }).catch((error) => {
             form.classList.add('shake')
             setTimeout(() => {
                 form.classList.remove('shake')
             }, 300);
-        }
+            console.log(error.code + ' : ' + error.message);
+            document.controller.renderMessage(`${error.code} : ${error.message}`, 'red')
+        })
     }
 
     logout() {
+        firebase_signOut()
         this.setState({
             screen: 'login'
         })
+    }
+
+    isLogin() {
+        return !!firebase.auth().currentUser
+    }
+
+    componentDidMount() {
+        // check is login
+        const CHECK_NUMBER = 10;
+        const CHECK_INTERVAL = 1000;
+        let checkCounter = 0;
+        let loginCheckTimeout = setInterval(() => {
+            if (this.isLogin()) {
+                this.setState({
+                    screen: 'book'
+                })
+            }
+            checkCounter++;
+            if (checkCounter >= CHECK_NUMBER || this.isLogin()) clearInterval(loginCheckTimeout);
+        }, CHECK_INTERVAL);
     }
 }
 

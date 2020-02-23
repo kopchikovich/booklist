@@ -38,6 +38,7 @@ const Main = (props) => {
     const addBookScreen = (
         <AddBookForm
             openBook={props.openBook}
+            updateLastBookId={props.updateLastBookId}
         />
     )
     const editBookScreen = (
@@ -45,6 +46,7 @@ const Main = (props) => {
             bookId={props.state.bookId}
             openBook={props.openBook}
             openBookListScreen={props.openBookListScreen}
+            updateLastBookId={props.updateLastBookId}
         />
     )
 

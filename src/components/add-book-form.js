@@ -1,5 +1,6 @@
 import React from 'react'
 import Button from './button'
+import {firebase_updateData} from '../firebase'
 
 const AddBookForm = (props) => {
 
@@ -33,7 +34,9 @@ const AddBookForm = (props) => {
         }
         const id = document.controller.db.add(book)
         document.controller.updateSortedBooks()
+        props.updateLastBookId()
         document.controller.renderMessage('Книга записана в базу', 'green')
+        firebase_updateData()
         props.openBook(null, id)
     }
 
