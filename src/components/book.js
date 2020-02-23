@@ -5,7 +5,7 @@ const Book = (props) => {
 
     const book = document.controller.db.open()[props.bookId]
     if (!book) {
-        return <div>Не найдено книг в базе. Добавьте первую!</div>
+        return <div className='no-books'>Не найдено книг в базе. Добавьте первую!</div>
     }
     const sortedBooks = document.controller.sortedBooks
     const quotes = book.quotes.map((item, i) => {

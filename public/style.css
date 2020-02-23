@@ -190,7 +190,10 @@ button.header__button--edit {
     font-size: 0.9em;
     margin-top: 10px;
 }
-
+.no-books {
+    text-align-last: center;
+    padding: 10px;
+}
 /**************************** controls ****************************/
 .controls {
     width: 100%;
