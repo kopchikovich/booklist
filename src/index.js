@@ -2,6 +2,7 @@ import React from 'react'
 import {render} from 'react-dom'
 import App from './components/app'
 import Db from './db'
+import * as serviceWorker from './serviceWorker'
 
 // make controller for app
 document.controller = {}
@@ -46,3 +47,5 @@ render((
         lastBookId={sortedBooks? sortedBooks[0].id : sortedBooks}
     />
 ), document.getElementById('root'))
+
+serviceWorker.register();
