@@ -40,12 +40,7 @@ document.controller.updateSortedBooks = () => {
     document.controller.sortedBooks = document.controller.db.getSortedBooks()
 }
 document.controller.updateSortedBooks()
-const sortedBooks = document.controller.sortedBooks
 
-render((
-    <App
-        lastBookId={sortedBooks? sortedBooks[0].id : sortedBooks}
-    />
-), document.getElementById('root'))
+render(<App/>, document.getElementById('root'))
 
 serviceWorker.register();
