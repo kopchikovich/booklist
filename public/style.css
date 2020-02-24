@@ -191,7 +191,12 @@ button.header__button--edit {
     margin-top: 10px;
 }
 .no-books {
-    text-align-last: center;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
     padding: 10px;
 }
 /**************************** controls ****************************/
