@@ -47,7 +47,9 @@ const firebase_getData = (appContext) => {
             document.controller.updateSortedBooks();
             if (appContext) {
                 appContext.setState({
-                    screen: 'book'
+                    screen: 'book',
+                    bookId: document.controller.sortedBooks[0].id,
+                    lastBookId: document.controller.sortedBooks[0].id
                 })
             }
             firebase_updateData();
