@@ -4,7 +4,7 @@ import Button from './button'
 
 const User = (props) => {
 
-    const lastBookTitle = document.controller.db.open()[props.lastBookId].title
+    const lastBookTitle = props.lastBookId? document.controller.db.open()[props.lastBookId].title : 'не прочитана'
     const totalRead = Object.keys(document.controller.db.open()).length
 
     return (
