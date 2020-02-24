@@ -11,8 +11,8 @@ class App extends Component {
         this.state = {
             screen: 'login',
             search: '',
-            bookId: props.lastBookId,
-            lastBookId: props.lastBookId,
+            bookId: document.controller.sortedBooks? document.controller.sortedBooks[0].id : document.controller.sortedBooks,
+            lastBookId: document.controller.sortedBooks? document.controller.sortedBooks[0].id : document.controller.sortedBooks,
             lightTheme: false
         }
     }
@@ -133,7 +133,7 @@ class App extends Component {
 
         firebase_signIn(form.email.value, form.password.value).then(() => {
             console.log('Sign in')
-            document.controller.renderMessage(`Привет`, 'green')
+            document.controller.renderMessage(`Пароль верен, идёт загрузка даннных...`, 'green')
             firebase_getData(this)
         }).catch((error) => {
             form.classList.add('shake')
