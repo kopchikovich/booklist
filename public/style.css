@@ -59,6 +59,9 @@ body {
 .header__button--list, input.header__search-input {
     margin-right: auto;
 }
+input.header__search-input {
+    padding-left: 10px;
+}
 button.header__button--edit {
     width: 30px;
     height: 30px;
