@@ -1,6 +1,7 @@
 import React from 'react'
 import Checkbox from './checkbox'
 import Button from './button'
+import {firebase_getData} from '../firebase'
 
 const User = (props) => {
 
@@ -15,7 +16,8 @@ const User = (props) => {
             <p className='user__text user__switch-theme'>Светлая тема 
                 <Checkbox className='user__checkbox' onChangeHandler={props.switchTheme} isChecked={props.lightTheme} />
             </p>
-            <Button className='user__button-exit' title='Выйти из аккаунта' onClickHandler={props.logout} />
+            <Button className='user__button' title='Синхронизировать с облаком' onClickHandler={() => firebase_getData(null)} />
+            <Button className='user__button' title='Выйти из аккаунта' onClickHandler={props.logout} />
         </article>
     )
 }
